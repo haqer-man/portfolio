@@ -1,0 +1,130 @@
+:root {
+    /* RGBA is used for transparency. The alpha value (e.g., 0.2) is key. */
+    --color-glass-bg: rgba(255, 255, 255, 0.2);
+    --color-glass-border: rgba(255, 255, 255, 0.3);
+    --color-link-highlight: rgba(255, 255, 255, 0.25);
+    
+    --color-text: #ffffff; /* Fully opaque white for max contrast */
+    --color-focus-outline: #5ab1ff;
+    
+    --font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-weight-bold: 600;
+    
+    --blur-value: 10px;
+    --border-radius-soft: 8px;
+    --navbar-height: 70px;
+    --navbar-padding: 1.5rem;
+    --container-width: 1140px;
+    --transition-speed: 0.3s;
+}
+
+/* Global Resets */
+*,
+*::before,
+*::after {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-sans-serif);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+
+  /* Vibrant background for glassmorphism effect */
+  background-image: linear-gradient(45deg, #ff005c, #5200ff);
+  background-attachment: fixed; /* gradient doesn't scroll with content */
+}
+
+ul { list-style: none; margin: 0; padding: 0; }
+
+a { text-decoration: none; color: inherit; }
+
+/*
+========================================
+CSS Custom Properties (Glassmorphic Theme)
+========================================
+The theme is defined by its semi-transparent colors,
+a blur value, and high-contrast text.
+*/
+
+/* Main Navbar Structure */
+.navbar {
+    /* Fixed position to stay at the top and show effect while scrolling */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+
+    /* Glassmorphism */
+    background: var(--color-glass-bg);
+    border-bottom: 1px solid var(--color-glass-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+    /* 'backdrop-filter' property creates frosted glass blur effect */
+    backdrop-filter: blur(var(--blur-value));
+    -webkit-backdrop-filter: blur(var(--blur-value)); /* For Safari compatibility */
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--navbar-padding);
+}
+
+.navbar__brand {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+}
+
+/* Make text readable against any background with a subtle shadow */
+.navbar__brand,
+.navbar__link {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/*
+Desktop Navbar Styles
+*/
+@media (min-width: 1px) {
+  .navbar__menu {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: static;
+      background-color: transparent !important;
+      background-image: none !important;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border: none;
+      z-index: 1;
+      padding: 0;
+  }
+
+  .navbar__list {
+      display: flex;
+      align-items: center;
+  }
+
+  .navbar__item {
+      margin-left: 0.5rem;
+  }
+
+  .navbar__link {
+      padding: 0.6rem 1.1rem;
+      border-radius: var(--border-radius-soft);
+  }
+
+  .navbar__link:hover,
+  .navbar__link:focus,
+  .navbar__link--active {
+    background-color: var(--color-link-highlight);
+  }
+}

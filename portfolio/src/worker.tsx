@@ -4,6 +4,7 @@ import { defineApp } from "rwsdk/worker";
 import { Document } from "@/app/document";
 import { setCommonHeaders } from "@/app/headers";
 import { Home } from "@/app/pages/home";
+import { Photography } from "@/app/pages/photography";
 
 export type AppContext = {};
 
@@ -18,5 +19,6 @@ export default defineApp([
     route("/ping", function () {
       return <h1>Pong!</h1>
     }),
+    route("/photos", Photography),
   ]),
 ]);
