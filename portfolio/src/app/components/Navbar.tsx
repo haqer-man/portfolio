@@ -1,6 +1,10 @@
-import type { NavbarItem, NavbarData } from "@/app/shared/navbar-links"
+import type { NavbarItem, NavbarList } from "@/app/shared/navbar-links"
 
-export function Navbar({ navbarData }: NavbarData ) {
+type NavbarDataProp = {
+  readonly navbarData: NavbarList;
+}
+
+export function Navbar({ navbarData }: NavbarDataProp ) {
   return (
     <header className="navbar">
       <div className="navbar__container">
