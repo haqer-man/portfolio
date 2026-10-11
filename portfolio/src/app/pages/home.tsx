@@ -1,6 +1,15 @@
-import { Welcome } from "./welcome.js";
+import constructionUrl from "/construction-compressed.webp"
 
 export const Home = () => {
-  // _Feel free to delete this element and its import_
-  return <Welcome />;
+  return (
+    <>
+      <div className="Title">Main Hub</div>
+      <img 
+        src={constructionUrl}
+        alt="Under Construction"
+        style={{ maxWidth: '50%' }}
+      />
+      <div>Under Construction</div>
+    </>
+  )
 };
