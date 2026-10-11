@@ -1,4 +1,5 @@
 import type { NavbarItem, NavbarList } from "@/app/shared/navbar-links"
+import { Hamburger } from '@/app/components/Hamburger'
 
 type NavbarDataProp = {
   readonly navbarData: NavbarList;
@@ -6,10 +7,10 @@ type NavbarDataProp = {
 
 export function Navbar({ navbarData }: NavbarDataProp ) {
   return (
-    <header className="navbar">
+    <header className="navbar" role="banner">
       <div className="navbar__container">
         <div className="navbar__menu">
-          <a href="/" className="navbar__home">Home</a>
+          <a href="/" className="navbar__home" aria-label="Homepage">Home</a>
 
           <ul className="navbar__list">
             {navbarData.map((item:NavbarItem) => (
@@ -20,9 +21,7 @@ export function Navbar({ navbarData }: NavbarDataProp ) {
           </ul>
         </div>
 
-        <button className="navbar__menu">
-          Hamburger menu
-        </button>
+        <Hamburger />
       </div>
     </header>
   );
