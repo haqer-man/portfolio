@@ -23,25 +23,32 @@ export function Hamburger() {
     }, [menuShown]);
   }
 
-  function useClickOutside(ref: React.RefObject<number>) {
-    // TODO
-    return;
-  }
+  function useClickOutside(ref: React.RefObject<any>) {
+    useEffect(() => {
+      if (!menuShown) return;
+      function handleClickOutside(event: MouseEvent) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setMenuShown(false);
+        }
+      }
 
-  useEffect(() => {
-    console.log("Mounted");
-  });
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [menuShown]);
+  }
 
   function handleClick() {
     setMenuShown(menuShown => !menuShown);
   }
 
-  const wrapperRef = useRef(0);
+  const wrapperRef = useRef(null);
   useClickOutside(wrapperRef);
   useEscape();
 
   return (
-    <div className="hamburger">
+    <div className="hamburger" ref={wrapperRef}>
       <button aria-label="Toggle navigation" onClick={handleClick} aria-expanded={menuShown}>Hamburger</button>
       
       {menuShown && <nav className="hamburger__menu">
