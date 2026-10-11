@@ -6,7 +6,7 @@ export type NavbarList = readonly NavbarItem[];
 
 // TODO: Make the hamburger menu allow the user to select
 // specific pages from a dropdown under each section
-export const HamburgerData: NavbarList = [
+export const hamburgerData: NavbarList = [
   {label: "Home", href: "/"},
   {label: "Computer Science", href: "/cs"},
   {label: "Robotics", href: "/robotics"},
