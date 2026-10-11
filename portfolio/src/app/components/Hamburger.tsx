@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import { hamburgerData } from '@/app/shared/navbar-links'
 import type { NavbarItem } from '@/app/shared/navbar-links'
 
-function useEscape(menuShown: boolean, setMenuShown: Function) {
+function useEscape(menuShown: boolean,
+      setMenuShown: React.Dispatch<React.SetStateAction<boolean>>) {
   useEffect(() => {
     if (!menuShown) return;
     function handlePressEscape(event: KeyboardEvent) {
@@ -21,7 +22,10 @@ function useEscape(menuShown: boolean, setMenuShown: Function) {
 }
 
 function useClickOutside(
-    menuShown: boolean, setMenuShown: Function, ref: React.RefObject<HTMLDivElement | null>) {
+      menuShown: boolean,
+      setMenuShown: React.Dispatch<React.SetStateAction<boolean>>,
+      ref: React.RefObject<HTMLDivElement | null>) {
+
   useEffect(() => {
     if (!menuShown) return;
     function handleClickOutside(event: MouseEvent) {
