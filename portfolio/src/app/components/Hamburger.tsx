@@ -13,13 +13,13 @@ export function Hamburger() {
 
   return (
     <div className="hamburger">
-      <button aria-label="Toggle navigation" onClick={handleClick} aria-expanded="false">Hamburger</button>
+      <button aria-label="Toggle navigation" onClick={handleClick} aria-expanded={menuShown}>Hamburger</button>
       
-      {menuShown && <nav className="hamburger__menu" role="navigation">
+      {menuShown && <nav className="hamburger__menu">
         <ul className="hamburger__list">
           {hamburgerData.map((item:NavbarItem) => (
             <li className="hamburger__item" key={item.label}>
-              <a href={item.href} className="hamburger__item">{item.label}</a>
+              <a href={item.href} className="hamburger__link">{item.label}</a>
             </li>
           ))}
         </ul>
