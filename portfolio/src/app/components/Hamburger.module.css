@@ -1,0 +1,8 @@
+.bar {
+  display: block;
+  width: 25px;
+  height: 4px;
+  margin: 5px auto;
+  background-color: rgb(115, 108, 108);
+  border-radius: 2px;
+}

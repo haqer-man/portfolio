@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { hamburgerData } from '@/app/shared/navbar-links'
 import type { NavbarItem } from '@/app/shared/navbar-links'
+import styles from "@/app/components/Hamburger.module.css"
 
 function useEscape(menuShown: boolean,
       setMenuShown: React.Dispatch<React.SetStateAction<boolean>>) {
@@ -54,10 +55,18 @@ export function Hamburger() {
   useEscape(menuShown, setMenuShown);
 
   return (
-    <div className="hamburger" ref={wrapperRef}>
-      <button aria-label="Toggle navigation" onClick={handleClick} aria-expanded={menuShown}>Hamburger</button>
+    <div className={styles.hamburger} ref={wrapperRef}>
+      <button className={styles.hamburger__toggle}
+              aria-label="Toggle navigation"
+              aria-controls="hamburgerMenu"
+              onClick={handleClick} 
+              aria-expanded={menuShown}>
+        <span className={styles.bar} aria-hidden={!menuShown}></span>
+        <span className={styles.bar} aria-hidden={!menuShown}></span>
+        <span className={styles.bar} aria-hidden={!menuShown}></span>
+      </button>
       
-      {menuShown && <nav className="hamburger__menu">
+      {menuShown && <nav className="hamburger__menu" id="hamburgerMenu">
         <ul className="hamburger__list">
           {hamburgerData.map((item:NavbarItem) => (
             <li className="hamburger__item" key={item.label}>
