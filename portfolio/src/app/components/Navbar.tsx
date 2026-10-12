@@ -1,5 +1,5 @@
 import type { NavbarItem, NavbarList } from "@/app/shared/navbar-links"
-import { Hamburger } from '@/app/components/Hamburger'
+import { Hamburger } from "@/app/components/Hamburger"
 
 type NavbarDataProp = {
   readonly navbarData: NavbarList;
