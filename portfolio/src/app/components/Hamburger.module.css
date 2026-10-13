@@ -6,3 +6,28 @@
   background-color: rgb(115, 108, 108);
   border-radius: 2px;
 }
+
+.hamburger__menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  margin-right: 0;
+  z-index: 2;
+  padding: 0;
+  background-color: rgba(114, 101, 101, 0.734);
+}
+
+.hamburger__list {
+  list-style: none;
+  align-items: center;
+  justify-content: left;
+}
+
+.hamburger__item {
+  margin-top: 0.5rem;
+}
+
+.hamburger__link {
+  padding: 1rem;
+  text-decoration-line: none;
+}

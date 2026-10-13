@@ -66,11 +66,11 @@ export function Hamburger() {
         <span className={styles.bar} aria-hidden={!menuShown}></span>
       </button>
       
-      {menuShown && <nav className="hamburger__menu" id="hamburgerMenu">
-        <ul className="hamburger__list">
+      {menuShown && <nav className={styles.hamburger__menu} id="hamburgerMenu">
+        <ul className={styles.hamburger__list}>
           {hamburgerData.map((item:NavbarItem) => (
-            <li className="hamburger__item" key={item.label}>
-              <a href={item.href} className="hamburger__link">{item.label}</a>
+            <li className={styles.hamburger__item} key={item.label}>
+              <a href={item.href} className={styles.hamburger__link}>{item.label}</a>
             </li>
           ))}
         </ul>
