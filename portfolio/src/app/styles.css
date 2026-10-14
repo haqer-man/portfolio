@@ -129,6 +129,11 @@ main {
   margin: 2px;
 }
 
+.gallery__image:hover {
+  filter: drop-shadow(4px 4px 6px gray);
+  transform: scale(1.1);
+}
+
 .gallery__container:nth-last-child(5),
 .gallery__container:nth-last-child(5) ~ div{
   flex-grow: 0;
