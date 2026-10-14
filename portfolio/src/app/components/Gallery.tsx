@@ -18,7 +18,7 @@ function createStyling(photo: Photo): React.CSSProperties {
 }
 
 export function Gallery({ photos }: PhotoArrayProp) {
-  const [selectedPhoto, setSelectedPhoto] = useState(-1);
+  const [selectedPhoto, setSelectedPhoto] = useState(0);
 
   return (
     <div className="gallery">
