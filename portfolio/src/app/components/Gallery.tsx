@@ -1,3 +1,7 @@
+"use client"
+
+import { useState } from "react"
+
 import type { Photo } from "@/app/shared/photo-data"
 import { GalleryImage } from "@/app/components/GalleryImage"
 
@@ -12,14 +16,18 @@ function createStyling(photo: Photo): React.CSSProperties {
     flexGrow: "var(--ratio)",
   } as React.CSSProperties;
 }
+
 export function Gallery({ photos }: PhotoArrayProp) {
+  const [selectedPhoto, setSelectedPhoto] = useState(-1);
+
   return (
     <div className="gallery">
     {photos.map((item:Photo) => (
       <div key={item.id} style={createStyling(item)} className="gallery__container">
-        <GalleryImage photo={item}/>
+        <GalleryImage photo={item} setSelectedPhoto={setSelectedPhoto}/>
       </div>
       ))}
+      Currently selected: {selectedPhoto}
     </div>
   )
 }

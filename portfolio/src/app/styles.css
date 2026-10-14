@@ -114,6 +114,14 @@ main {
   flex-wrap: wrap;
 }
 
+.gallery__button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
 .gallery__image {
   height: auto;
   width: 100%;
