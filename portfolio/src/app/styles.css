@@ -84,11 +84,9 @@ main {
 
 .hero__image{
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/pr-cond.webp");
-
   height: 20rem;
   margin: 0;
   padding: 0;
-
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -102,4 +100,28 @@ main {
   left: 50%;
   transform: translate(-50%, -20%);
   color: white;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  --row-height: 200px;
+}
+
+.gallery__container {
+  height: var(--row-height);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery__image {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  margin: 2px;
+}
+
+.gallery__container:nth-last-child(5),
+.gallery__container:nth-last-child(5) ~ div{
+  flex-grow: 0;
 }
