@@ -37,6 +37,7 @@
 .navbar__link {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   text-decoration-line: none;
+  color: rgb(176, 235, 161);
 }
 
 /*
@@ -73,4 +74,9 @@ Desktop Navbar Styling
   .navbar__link--active {
     background-color: var(--color-link-highlight);
   }
+}
+
+.content {
+  position: relative;
+  padding-top: var(--navbar-height);
 }
