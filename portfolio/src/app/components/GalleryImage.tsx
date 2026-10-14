@@ -2,7 +2,7 @@ import type { Photo } from "@/app/shared/photo-data"
 
 type GalleryImageProps = {
   photo: Photo,
-  setSelectedPhoto: React.Dispatch<React.SetStateAction<number>>
+  setSelectedPhoto: React.Dispatch<React.SetStateAction<number | null>>
 }
 
 export function GalleryImage({ photo, setSelectedPhoto }: GalleryImageProps) {
