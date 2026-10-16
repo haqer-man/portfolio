@@ -139,3 +139,36 @@ main {
 .gallery__container:nth-last-child(5) ~ div{
   flex-grow: 0;
 }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000; /* above the navbar's 1000 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.lightbox__image {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2001;
+}
+
+.lightbox__close:focus-visible {
+  outline: 2px solid white;
+}
