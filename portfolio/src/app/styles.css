@@ -108,6 +108,12 @@ main {
   --row-height: 200px;
 }
 
+.gallery::after {
+  content: "";
+  flex-grow: 999;
+  flex-basis: 0;
+}
+
 .gallery__container {
   height: var(--row-height);
   display: flex;
@@ -115,6 +121,9 @@ main {
 }
 
 .gallery__button {
+  display: block;
+  width: 100%;
+  height: 100%;
   background: none;
   border: none;
   padding: 0;
@@ -123,7 +132,7 @@ main {
 }
 
 .gallery__image {
-  height: auto;
+  height: 100%;
   width: 100%;
   object-fit: cover;
   margin: 2px;
