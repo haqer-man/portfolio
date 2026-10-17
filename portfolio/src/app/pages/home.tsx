@@ -9,7 +9,9 @@ export const Home = () => {
       />
       <div>Under Construction</div>
 
-      <a href="/cs">Computer Science Portfolio</a>
+      <a href="/cs">Computer Science Portfolio</a><br />
+      <a href="/robotics">Robotics Engineering Portfolio</a><br />
+      <a href="/photos">Photography Portfolio</a><br />
     </>
   )
 };

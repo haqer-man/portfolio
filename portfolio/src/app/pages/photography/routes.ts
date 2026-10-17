@@ -8,6 +8,5 @@ import { PhotoPlaceholder } from "./placeholder"
 export const routes = [
     route("/albums", Albums),
     route("/map", PhotoMap),
-    // route("/", PhotoHome)
-    route("/", PhotoPlaceholder)
+    route("/", PhotoHome),
 ]
