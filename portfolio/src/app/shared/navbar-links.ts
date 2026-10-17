@@ -20,3 +20,5 @@ export const photoNavbarData: NavbarList = [
   {label: "Map", href: "/photos/map"},
   {label: "Contact", href: "/contact"},
 ]
+
+export const csNavbarData: NavbarList = []

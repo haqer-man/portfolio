@@ -181,3 +181,382 @@ main {
 .lightbox__close:focus-visible {
   outline: 2px solid white;
 }
+
+/* ======================================
+            CS
+   ====================================== */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&display=swap");
+
+/* Browsers add an 8px margin around <body>; remove it on this page only */
+body:has(.cs) {
+  margin: 0;
+  background: #eef2f4;
+}
+@media (prefers-color-scheme: dark) {
+  body:has(.cs) {
+    background: #0f1a21;
+  }
+}
+
+.cs {
+  --paper: #eef2f4;
+  --surface: #ffffff;
+  --ink: #13202a;
+  --muted: #4d5c67;
+  --line: #c9d3d9;
+  --signal: #0a6b66;
+  --signal-soft: #d6ebe9;
+
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  min-height: 100vh;
+  padding-top: calc(var(--navbar-height) * 7);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+@media (prefers-color-scheme: dark) {
+  .cs {
+    --paper: #0f1a21;
+    --surface: #17252e;
+    --ink: #e7eef2;
+    --muted: #a3b2bc;
+    --line: #2b3d49;
+    --signal: #5fd0c7;
+    --signal-soft: #17393a;
+  }
+}
+
+.cs *,
+.cs *::before,
+.cs *::after {
+  box-sizing: border-box;
+}
+
+.cs a {
+  color: var(--signal);
+  text-underline-offset: 3px;
+}
+
+.cs :focus-visible {
+  outline: 3px solid var(--signal);
+  outline-offset: 3px;
+}
+
+.cs h1,
+.cs h2,
+.cs h3 {
+  font-family: var(--display);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.cs .skip {
+  position: absolute;
+  left: -999px;
+}
+.cs .skip:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--surface);
+  padding: 0.5rem 1rem;
+}
+
+/* Layout shell */
+.cs .hero,
+.cs .block,
+.cs-footer {
+  width: min(1080px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+/* Hero */
+.cs .hero {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding-block: 3rem 5rem;
+}
+.cs .hero h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  max-width: 16ch;
+}
+.cs .lede {
+  max-width: 60ch;
+  color: var(--muted);
+  margin: 1.5rem 0 2rem;
+}
+.cs .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.cs .btn {
+  display: inline-block;
+  padding: 0.65rem 1.2rem;
+  border-radius: 6px;
+  background: var(--signal);
+  color: var(--paper);
+  font-weight: 500;
+  text-decoration: none;
+  border: 2px solid var(--signal);
+}
+.cs .btn:hover {
+  filter: brightness(1.1);
+}
+.cs .btn-quiet {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+/* LiDAR illustration: the single animated moment */
+.cs .lidar {
+  width: 100%;
+  max-width: 360px;
+  justify-self: center;
+}
+.cs .lidar-walls path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 3;
+  stroke-linecap: square;
+}
+.cs .lidar .wedge {
+  fill: var(--signal);
+  opacity: 0.16;
+}
+.cs .lidar .beam {
+  stroke: var(--signal);
+  stroke-width: 2;
+}
+.cs .lidar .robot {
+  fill: var(--signal);
+}
+.cs .lidar-sweep {
+  transform-origin: 160px 160px;
+  animation: sweep 6s linear infinite;
+}
+@keyframes sweep {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sections */
+.cs .block,
+.cs-footer {
+  scroll-margin-top: calc(var(--navbar-height) + 1rem);
+}
+
+.cs .block {
+  padding-block: 3rem;
+  border-top: 1px solid var(--line);
+}
+.cs .block > h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.cs .group-title {
+  font-size: 1.35rem;
+  margin: 3.5rem 0 0.5rem;
+}
+.cs .group-intro {
+  color: var(--muted);
+  max-width: 65ch;
+  margin: 0 0 1.5rem;
+}
+
+/* Projects */
+.cs .feature {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--signal);
+  border-radius: 8px;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+}
+.cs .feature .project-title {
+  font-size: 1.85rem;
+}
+
+.cs .pair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+.cs .trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.cs .card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+.cs .card-small p {
+  font-size: 0.97rem;
+}
+
+.cs .project-title {
+  font-size: 1.4rem;
+}
+.cs .project-summary {
+  margin: 0.4rem 0 0.25rem;
+  font-weight: 500;
+}
+.cs .project-role {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.cs .story {
+  display: grid;
+  gap: 1rem;
+}
+.cs .feature .story {
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.cs .story h4 {
+  font-family: var(--display);
+  font-size: 1rem;
+  margin: 0 0 0.25rem;
+}
+.cs .story p {
+  margin: 0;
+  max-width: 62ch;
+}
+.cs .highlights {
+  margin: 1.25rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.cs .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+}
+.cs .tags li {
+  background: var(--signal-soft);
+  color: var(--ink);
+  font-size: 0.85rem;
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+}
+.cs .project-links {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0 0;
+  font-weight: 500;
+}
+
+/* Experience */
+.cs .timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2rem;
+}
+.cs .timeline > li {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 1.5rem;
+}
+.cs .when {
+  color: var(--muted);
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+}
+.cs .timeline h3 {
+  font-size: 1.2rem;
+}
+.cs .org {
+  margin: 0.15rem 0 0.5rem;
+  color: var(--muted);
+}
+.cs .timeline ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  max-width: 68ch;
+}
+
+/* Skills */
+.cs .skills {
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+.cs .skills > div {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+}
+.cs .skills dt {
+  font-weight: 500;
+}
+.cs .skills dd {
+  margin: 0;
+}
+.cs .skills .tags {
+  margin: 0;
+}
+.cs .creds {
+  padding-left: 1.1rem;
+  margin: 0.75rem 0 0;
+}
+
+/* Footer */
+.cs-footer {
+  padding-block: 4rem 5rem;
+  border-top: 1px solid var(--line);
+}
+.cs-footer h2 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .cs .hero {
+    grid-template-columns: 1fr;
+    padding-block: 2rem 3rem;
+  }
+  .cs .lidar {
+    max-width: 260px;
+    justify-self: start;
+  }
+  .cs .pair,
+  .cs .trio,
+  .cs .feature .story {
+    grid-template-columns: 1fr;
+  }
+  .cs .timeline > li,
+  .cs .skills > div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs .lidar-sweep {
+    animation: none;
+  }
+}
