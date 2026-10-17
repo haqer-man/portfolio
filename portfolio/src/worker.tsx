@@ -10,7 +10,6 @@ import { CSHome } from "@/app/pages/cs/index"
 import { Contact } from "@/app/pages/contact"
 import { routes as photoRoutes } from "@/app/pages/photography/routes"
 import { PhotoLayout } from "@/app/layouts/PhotoLayout"
-import { PhotoPlaceholder } from "@/app/pages/photography/PhotoPlaceholder"
 
 export type AppContext = {};
 
@@ -25,9 +24,8 @@ export default defineApp([
     route("/contact", Contact),
     route("/cs", CSHome),
     route("/robotics", RoboticsHome),
-    route("/photos", PhotoPlaceholder),
-    // layout(PhotoLayout, [
-    //   prefix("/photos", photoRoutes)
-    // ]),
+    layout(PhotoLayout, [
+      prefix("/photos", photoRoutes)
+    ]),
   ]),
 ]);
