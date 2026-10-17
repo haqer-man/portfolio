@@ -8,6 +8,8 @@ export const Home = () => {
         style={{ maxWidth: '50%' }}
       />
       <div>Under Construction</div>
+
+      <a href="/cs">Computer Science Portfolio</a>
     </>
   )
 };

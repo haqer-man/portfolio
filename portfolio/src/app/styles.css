@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&display=swap");
+
 :root {
   --navbar-height: 50px;
   --navbar-padding: 1.5rem;
@@ -185,7 +187,6 @@ main {
 /* ======================================
             CS
    ====================================== */
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&display=swap");
 
 /* Browsers add an 8px margin around <body>; remove it on this page only */
 body:has(.cs) {
