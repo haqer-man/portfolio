@@ -22,7 +22,7 @@ export const profile = {
   bio: "I'm a Computer Science and Robotics Engineering student at Worcester Polytechnic Institute (BS/MS, May 2028). I build things close to the machine: shells in C, SLAM on a LiDAR robot, and the occasional repaired pinball machine. I'm looking for software engineering internships in systems, robotics, or security.",
   github: "https://github.com/haqer-man",
   linkedin: "https://linkedin.com/in/zburgoon",
-  resume: "/Zachary_Burgoon_Resume.pdf", // put the PDF in /public
+  resume: "/Zachary_Burgoon_Resume_CS.pdf", // put the PDF in /public
 };
 
 export const projects: Project[] = [
