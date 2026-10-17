@@ -104,6 +104,10 @@ main {
   color: white;
 }
 
+body:has(.gallery) {
+  margin: 0;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -188,7 +192,6 @@ main {
             CS
    ====================================== */
 
-/* Browsers add an 8px margin around <body>; remove it on this page only */
 body:has(.cs) {
   margin: 0;
   background: #eef2f4;
