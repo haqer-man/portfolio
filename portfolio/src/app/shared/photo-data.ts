@@ -27,7 +27,7 @@ export const photos: Photo[] = [
     base_path: '/man.webp',
     width: 744,
     height: 900,
-    alt_text: "white man",
+    alt_text: "man",
     rating: 3,
     view_count: 0,
     date_added: Date.now()
@@ -37,7 +37,7 @@ export const photos: Photo[] = [
     base_path: '/man-thumbs-up.webp',
     width: 800,
     height: 534,
-    alt_text: "black man",
+    alt_text: "man",
     rating: 3,
     view_count: 0,
     date_added: Date.now()
@@ -47,7 +47,7 @@ export const photos: Photo[] = [
     base_path: '/woman.jpg',
     width: 612,
     height: 408,
-    alt_text: "white woman",
+    alt_text: "woman",
     rating: 3,
     view_count: 0,
     date_added: Date.now()
