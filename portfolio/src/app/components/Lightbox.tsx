@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect } from "react"
+import { createPortal } from "react-dom"
+
 import type { Photo } from "@/app/shared/photo-data"
 
 type LightboxProps = {
@@ -33,7 +35,7 @@ export function Lightbox({ photo, closeFn }: LightboxProps) {
     if (event.target === event.currentTarget) closeFn();
   }
 
-  return (
+  return createPortal(
     <div
       className="lightbox"
       role="dialog"
@@ -49,6 +51,7 @@ export function Lightbox({ photo, closeFn }: LightboxProps) {
         src={photo.base_path}
         alt={photo.alt_text ?? ""}
       />
-    </div>
+    </div>,
+    document.body
   )
 }
