@@ -329,6 +329,7 @@ body:has(.cs) {
   width: 100%;
   max-width: 360px;
   justify-self: center;
+  z-index: 2;
 }
 .cs .lidar-walls path {
   fill: none;
