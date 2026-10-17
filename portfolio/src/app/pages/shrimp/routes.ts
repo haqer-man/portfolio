@@ -1,6 +1,6 @@
 import { route } from "rwsdk/router"
 
-import { ShrimpHome, ShrimpTest, ShrimpSuccess, ShrimpFail } from "@/app/pages/shrimp/pages"
+import { ShrimpHome, ShrimpTest, ShrimpSuccess, ShrimpFail } from "./shrimpPages"
 
 export const shrimpRoutes = [
   route("/", ShrimpHome),
