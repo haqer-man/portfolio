@@ -12,6 +12,7 @@ export const Home = () => {
       <a href="/cs">Computer Science Portfolio</a><br />
       <a href="/robotics">Robotics Engineering Portfolio</a><br />
       <a href="/photos">Photography Portfolio</a><br />
+      <a href="/shrimp">Shrimp Test</a><br />
     </>
   )
 };

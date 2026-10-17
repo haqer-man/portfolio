@@ -10,6 +10,7 @@ import { CSHome } from "@/app/pages/cs/index"
 import { Contact } from "@/app/pages/contact"
 import { routes as photoRoutes } from "@/app/pages/photography/routes"
 import { PhotoLayout } from "@/app/layouts/PhotoLayout"
+import { shrimpRoutes } from "@/app/pages/shrimp/routes"
 
 export type AppContext = {};
 
@@ -27,5 +28,6 @@ export default defineApp([
     layout(PhotoLayout, [
       prefix("/photos", photoRoutes)
     ]),
+    prefix("/shrimp", shrimpRoutes),
   ]),
 ]);
