@@ -1,16 +1,24 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "portfolio",
-  "main": "src/worker.tsx",
-  "compatibility_date": "2025-08-21",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
-  "assets": {
-    "binding": "ASSETS"
-  },
-  "observability": {
-    "enabled": true
-  },
-  "vars": {}
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "portfolio",
+	"main": "src/worker.tsx",
+	"compatibility_date": "2025-08-21",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"assets": {
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"vars": {},
+	"d1_databases": [
+		{
+			"binding": "portfolio_db",
+			"database_name": "portfolio-db",
+			"database_id": "040ce993-b4f1-4178-b8d0-73b257d77f6e",
+			"remote": true
+		}
+	]
 }
