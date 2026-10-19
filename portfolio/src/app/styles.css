@@ -141,7 +141,7 @@ body:has(.gallery) {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  margin: 2px;
+  gap: 2px;
   transition: transform 0.3s ease-out;
 }
 
