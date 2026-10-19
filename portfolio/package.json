@@ -21,8 +21,8 @@
     "check": "npm run generate && npm run types",
     "types": "tsc",
     "migrate:new": "drizzle-kit generate",
-    "migrate:dev": "wrangler d1 migrations apply DB --local",
-    "migrate:prod": "wrangler d1 migrations apply DB --remote"
+    "migrate:dev": "wrangler d1 migrations apply portfolio-db --local",
+    "migrate:prod": "wrangler d1 migrations apply portfolio-db --remote"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.4",
