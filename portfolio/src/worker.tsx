@@ -31,3 +31,7 @@ export default defineApp([
     prefix("/shrimp", shrimpRoutes),
   ]),
 ]);
+
+export interface Env {
+  DB: D1Database;
+}

@@ -1,6 +1,48 @@
 # portfolio
 This is a portfolio hub for my robotics, CS, photography, and music portfolios.
 
+There is a dev-tool vulnerability in the npm packages from esbuild that I can't get to go away.
+
+Photos database structure:
+
+Photos table:
+
+* photo_ID INTEGER PRIMARY KEY
+* base_path TEXT UNIQUE NOT NULL
+* latitude REAL optional
+* longitude REAL optional
+* width INTEGER NOT NULL
+* height INTEGER NOT NULL
+* alt_text TEXT optional
+* rating REAL optional CHECK (rating BETWEEN 0.0 AND 5.0)
+* view_count INTEGER Default 0 NOT NULL
+* date_added TEXT NOT NULL DEFAULT current_timestamp
+* date_taken TEXT optional
+* CONSTRAINT bothPhotoCoordinates CHECK(
+latitude is NULL and longitude is NULL or
+latitude is NOT NULL and longitude is NOT NULL and
+(latitude -90 to 90, longitude -180 to 180).)
+
+Albums table:
+
+* album_ID INTEGER PRIMARY KEY
+* album_name TEXT UNIQUE NOT NULL
+* latitude REAL optional
+* longitude REAL optional
+* date_added TEXT NOT NULL DEFAULT current_timestamp
+* cover_photo_path TEXT REFERENCES photos(base_path) optional ON DELETE SET NULL
+* description TEXT optional
+* CONSTRAINT bothAlbumCoordinates CHECK(
+latitude is NULL and longitude is NULL or
+latitude is NOT NULL and longitude is NOT NULL and
+(latitude -90 to 90, longitude -180 to 180).)
+
+Pivot table:
+* primary key (foreign key album_ID, foreign key photo_ID)
+* foreign key album_ID INTEGER REFERENCES albums(album_ID) NOT NULL ON DELETE CASCADE
+* foreign key photo_ID INTEGER REFERENCES photos(photo_ID) NOT NULL ON DELETE CASCADE
+
+
 <br></br>
 
 # About the site
