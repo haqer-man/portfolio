@@ -1,7 +1,7 @@
 import { sqliteTable, text, integer, real, index, primaryKey, check } from "drizzle-orm/sqlite-core"
 import { sql } from "drizzle-orm"
 
-export const photo = sqliteTable('photo', {
+export const photos = sqliteTable('photos', {
   id: integer({ mode: 'number' }).primaryKey({ autoIncrement: true }),
   path: text().unique().notNull(),
   width: integer({ mode: 'number' }).notNull(),
@@ -28,11 +28,11 @@ export const photo = sqliteTable('photo', {
   ]
 );
 
-export const album = sqliteTable('album', {
+export const albums = sqliteTable('albums', {
   id: integer({ mode: 'number' }).primaryKey({ autoIncrement: true }),
   name: text('name').unique().notNull(),
   dateAdded: integer('date_added', { mode: 'timestamp' }).default(sql`((unixepoch()))`).notNull(),
-  coverPhotoPath: text('cover_photo_path').references(() => photo.path, { onDelete: 'set null', onUpdate: 'cascade' }),
+  coverPhotoPath: text('cover_photo_path').references(() => photos.path, { onDelete: 'set null', onUpdate: 'cascade' }),
   description: text(),
   latitude: real(),
   longitude: real(),
@@ -50,19 +50,19 @@ export const album = sqliteTable('album', {
   ]
 );
 
-export const photoToAlbum = sqliteTable('photo_to_album', {
-  photoId: integer('photo_id').references(() => photo.id, { onDelete: 'cascade' }).notNull(),
-  albumId: integer('album_id').references(() => album.id, { onDelete: 'cascade' }).notNull(),
+export const photosToAlbum = sqliteTable('photos_to_album', {
+  photoId: integer('photo_id').references(() => photos.id, { onDelete: 'cascade' }).notNull(),
+  albumId: integer('album_id').references(() => albums.id, { onDelete: 'cascade' }).notNull(),
 }, (table) => [
   primaryKey({ name: 'pivot_id', columns: [table.albumId, table.photoId] }),
   index("photo_to_album_photo_idx").on(table.photoId)
 ]);
 
-export type Photo = typeof photo.$inferSelect;
-export type PhotoInsert = typeof photo.$inferInsert;
+export type Photo = typeof photos.$inferSelect;
+export type PhotoInsert = typeof photos.$inferInsert;
 
-export type Album = typeof album.$inferSelect;
-export type AlbumInsert = typeof album.$inferInsert;
+export type Album = typeof albums.$inferSelect;
+export type AlbumInsert = typeof albums.$inferInsert;
 
-export type PhotoToAlbum = typeof photoToAlbum.$inferSelect;
-export type PhotoToAlbumInsert = typeof photoToAlbum.$inferInsert;
+export type PhotoToAlbum = typeof photosToAlbum.$inferSelect;
+export type PhotoToAlbumInsert = typeof photosToAlbum.$inferInsert;
