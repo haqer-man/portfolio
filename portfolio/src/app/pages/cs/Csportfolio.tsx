@@ -60,7 +60,6 @@ const ProjectBody: FC<{ project: Project }> = ({ project }) => (
   </>
 );
 
-/** The one memorable element: a LiDAR sweep over a small maze. */
 const LidarMap: FC = () => (
   <svg
     className="lidar"
@@ -73,8 +72,8 @@ const LidarMap: FC = () => (
       <path d="M20 110H190M130 110V200M70 200H240M240 200V110M240 110H300M190 20V70M70 250V300M160 250V300" />
     </g>
     <g className="lidar-sweep">
-      <path d="M160 160L160 -20A180 180 0 0 1 270 17Z" className="wedge" />
-      <line x1="160" y1="160" x2="160" y2="-20" className="beam" />
+      <path d="M160 160L160 20A140 140 0 0 1 230 38.76Z" className="wedge" />
+      <line x1="160" y1="160" x2="160" y2="20" className="beam" />
     </g>
     <circle cx="160" cy="160" r="6" className="robot" />
   </svg>
@@ -198,5 +197,3 @@ export const CsPortfolio: FC = () => {
     </div>
   );
 };
-
-export default CsPortfolio;
