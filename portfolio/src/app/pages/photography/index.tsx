@@ -7,6 +7,7 @@ export function PhotoHome() {
         <div className="hero__image">
           <div className="hero__text">
             <h1>Burgoon Photography</h1>
+            <h3>Work in Progress</h3>
           </div>
         </div>
         <Gallery photos={photos} />
