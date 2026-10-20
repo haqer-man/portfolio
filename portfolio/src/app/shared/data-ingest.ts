@@ -18,23 +18,14 @@ const PF: string = "/img/";
 export function widthsFor(originalWidth: number): number[] {
   const widths: number[] = [];
 
-  if (originalWidth < TARGET_WIDTHS[0]) {
-    widths.push(originalWidth);
-    return widths;
+  const top_size: number = Math.min(originalWidth, TARGET_WIDTHS[2]);
+  widths.push(top_size);
+
+  for (const t_w of TARGET_WIDTHS.toReversed()) {
+    if (top_size - 150 > t_w) widths.push(t_w);
   }
 
-  for (const t of TARGET_WIDTHS) {
-    // Don't allow widths within 150px of each other
-    if (originalWidth > t && Math.abs(originalWidth - t) > 150) {
-      widths.push(t);
-    }
-  }
-
-  // Add originalWidth if less than highest target width
-  if (widths.length < 3 && originalWidth < TARGET_WIDTHS[2]) {
-    widths.push(originalWidth);
-  }
-  return widths;
+  return widths.reverse();
 }
 
 /**
