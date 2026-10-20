@@ -60,6 +60,8 @@ export const photosToAlbum = sqliteTable('photos_to_album', {
 
 export type Photo = typeof photos.$inferSelect;
 export type PhotoInsert = typeof photos.$inferInsert;
+export type LightweightPhoto = Pick<Photo, "id" | "path" | "width" | "height" | "altText">;
+
 
 export type Album = typeof albums.$inferSelect;
 export type AlbumInsert = typeof albums.$inferInsert;

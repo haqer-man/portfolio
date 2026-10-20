@@ -2,15 +2,15 @@
 
 import { useState } from "react"
 
-import type { Photo } from "@/app/shared/photo-data"
+import { type LightweightPhoto } from "@/db/schema"
 import { GalleryImage } from "@/app/components/GalleryImage"
 import { Lightbox } from "@/app/components/Lightbox"
 
 type PhotoArrayProp = {
-  photos: Photo[]
+  photos: LightweightPhoto[]
 }
 
-function createStyling(photo: Photo): React.CSSProperties {
+function createStyling(photo: LightweightPhoto): React.CSSProperties {
   return {
     "--ratio": photo.width / photo.height,
     flexBasis: "calc(var(--row-height) * var(--ratio))",
@@ -26,7 +26,7 @@ export function Gallery({ photos }: PhotoArrayProp) {
   return (
     <>
       <div className="gallery">
-        {photos.map((item: Photo) => (
+        {photos.map((item: LightweightPhoto) => (
           <div key={item.id} style={createStyling(item)} className="gallery__container">
             <GalleryImage photo={item} setSelectedPhoto={setActivePhotoId} />
           </div>

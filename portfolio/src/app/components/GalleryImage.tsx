@@ -1,7 +1,7 @@
-import type { Photo } from "@/app/shared/photo-data"
+import type { LightweightPhoto } from "@/db/schema"
 
 type GalleryImageProps = {
-  photo: Photo,
+  photo: LightweightPhoto,
   setSelectedPhoto: React.Dispatch<React.SetStateAction<number | null>>
 }
 
@@ -12,8 +12,8 @@ export function GalleryImage({ photo, setSelectedPhoto }: GalleryImageProps) {
       setSelectedPhoto(photo.id)
     )}>
     <img className="gallery__image"
-        src={photo.base_path}
-        alt={photo.alt_text}
+        src={photo.path}
+        alt={photo.altText ?? ""}
         loading="lazy"/>
     </button>
   )

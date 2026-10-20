@@ -3,10 +3,10 @@
 import { useEffect } from "react"
 import { createPortal } from "react-dom"
 
-import type { Photo } from "@/app/shared/photo-data"
+import type { LightweightPhoto } from "@/db/schema"
 
 type LightboxProps = {
-  photo: Photo,
+  photo: LightweightPhoto,
   closeFn: () => void,
 }
 
@@ -40,7 +40,7 @@ export function Lightbox({ photo, closeFn }: LightboxProps) {
       className="lightbox"
       role="dialog"
       aria-modal="true"
-      aria-label={photo.alt_text ?? "Photo"}
+      aria-label={photo.altText ?? "Photo"}
       onClick={handleBackdropClick}
     >
       <button className="lightbox__close" onClick={closeFn} aria-label="Close">
@@ -48,8 +48,8 @@ export function Lightbox({ photo, closeFn }: LightboxProps) {
       </button>
       <img
         className="lightbox__image"
-        src={photo.base_path}
-        alt={photo.alt_text ?? ""}
+        src={photo.path}
+        alt={photo.altText ?? ""}
       />
     </div>,
     document.body
