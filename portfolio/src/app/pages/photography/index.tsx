@@ -4,6 +4,8 @@ import { Gallery } from "@/app/components/Gallery"
 import { db } from "@/db/db"
 import { photos, type LightweightPhoto } from "@/db/schema"
 
+import { srcSetFor } from "@/app/shared/data-ingest"
+
 export const PhotoHome = async () => {
   const allPhotos: LightweightPhoto[] = await db.select({
     id: photos.id,
@@ -12,6 +14,10 @@ export const PhotoHome = async () => {
     height: photos.height,
     altText: photos.altText
   }).from(photos);
+
+  for (const p of allPhotos) {
+    console.log(srcSetFor(p.path, p.width));
+  }
   return (
     <>
     <div className="hero__image">
