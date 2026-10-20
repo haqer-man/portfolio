@@ -9,10 +9,11 @@ Photos table:
 
 * photo_ID INTEGER PRIMARY KEY
 * base_path TEXT UNIQUE NOT NULL
+  * ON CONFLICT DO UPDATE width, height, alt_text, date_taken, latitude, longitude
 * latitude REAL optional
 * longitude REAL optional
-* width INTEGER NOT NULL
-* height INTEGER NOT NULL
+* width INTEGER NOT NULL ON CONFLICT UPDATE
+* height INTEGER NOT NULL ON CONFLICT UPDATE
 * alt_text TEXT optional
 * rating REAL optional CHECK (rating BETWEEN 0.0 AND 5.0)
 * view_count INTEGER Default 0 NOT NULL
