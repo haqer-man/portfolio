@@ -3,6 +3,7 @@
 const TARGET_WIDTHS: number[] = [400, 800, 1600];
 // Use .webp for better performance
 const EXT: string = ".webp";
+const PF: string = "/img/";
 
 /**
  * Generates target widths for an image with the given
@@ -14,8 +15,13 @@ const EXT: string = ".webp";
  *    An array of target widths that are no larger than
  *    the original
  */
-function widthsFor(originalWidth: number): number[] {
-  let widths: number[] = [];
+export function widthsFor(originalWidth: number): number[] {
+  const widths: number[] = [];
+
+  if (originalWidth < TARGET_WIDTHS[0]) {
+    widths.push(originalWidth);
+    return widths;
+  }
 
   for (const t of TARGET_WIDTHS) {
     // Don't allow widths within 150px of each other
@@ -25,11 +31,9 @@ function widthsFor(originalWidth: number): number[] {
   }
 
   // Add originalWidth if less than highest target width
-  if (
-    widths.length < 3 && 
-    Math.abs(widths[widths.length - 1] - originalWidth) > 150) {
-      widths.push(originalWidth);
-    }
+  if (widths.length < 3 && originalWidth < TARGET_WIDTHS[2]) {
+    widths.push(originalWidth);
+  }
   return widths;
 }
 
@@ -44,7 +48,7 @@ function widthsFor(originalWidth: number): number[] {
  * @returns 
  *    An R2 key for a sized image (i.e. 'cat_400.webp')
  */
-function keyFor(path: string, width: number): string {
+export function keyFor(path: string, width: number): string {
   return path + "_" + width + EXT;
 }
 
@@ -62,6 +66,6 @@ function keyFor(path: string, width: number): string {
  */
 export function srcSetFor(path: string, originalWidth: number): string {
   return widthsFor(originalWidth).map((width) => (
-    `/img/${keyFor(path, width)} ${width}w`
-  )).join(', ').slice(0, -1);
+    `${PF}${keyFor(path, width)} ${width}w`
+  )).join(', ');
 }
