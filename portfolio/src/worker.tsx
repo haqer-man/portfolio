@@ -5,8 +5,7 @@ import { Document } from "@/app/document";
 import { setCommonHeaders } from "@/app/headers";
 
 import { Home } from "@/app/pages/home";
-import { RoboticsHome } from "@/app/pages/robotics/index";
-import { CSHome } from "@/app/pages/cs/index";
+import { Projects } from "@/app/pages/projects/index";
 import { Contact } from "@/app/pages/contact";
 import { routes as photoRoutes } from "@/app/pages/photography/routes";
 import { PhotoLayout } from "@/app/layouts/PhotoLayout";
@@ -24,8 +23,7 @@ export default defineApp([
   render(Document, [
     layout(RootLayout, [route("/", Home)]),
     route("/contact", Contact),
-    route("/cs", CSHome),
-    route("/robotics", RoboticsHome),
+    layout(RootLayout, [route("/projects", Projects)]),
     layout(PhotoLayout, [
       prefix("/photos", photoRoutes)
     ]),

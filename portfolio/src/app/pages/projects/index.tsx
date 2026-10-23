@@ -6,7 +6,7 @@ import {
   skills,
   credentials,
   type Project,
-} from "@/app/pages/cs/projects";
+} from "@/app/pages/projects/projects";
 
 const byId = (id: string): Project => {
   const p = projects.find((x) => x.id === id);
@@ -79,7 +79,7 @@ const LidarMap: FC = () => (
   </svg>
 );
 
-export const CsPortfolio: FC = () => {
+export function Projects() {
   const slam = byId("slam");
   const shells = [byId("c-shell"), byId("java-shell")];
   const more = ["wordless", "sudoku", "weather"].map(byId);
