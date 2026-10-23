@@ -1,6 +1,7 @@
 import { BackgroundBeamsWithCollision } from "@/app/components/ui/BackgroundBeamsWithCollision";
 import { ShootingStars } from "@/app/components/ui/ShootingStars";
 import { StarsBackground } from "@/app/components/ui/StarsBackground";
+import { TextHoverEffect } from "@/app/components/ui/TextHoverEffect";
 import { Social } from "@/app/components/Social";
 
 const navigation = [
@@ -38,16 +39,16 @@ export function Home() {
               <Social />
             </div>
             <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-            <div className="flex-row flex">
-              <span className="text-hero pl-10 z-10 text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display whitespace-nowrap bg-clip-text">
-                <span className="mr-5 leading-[1.15] text-left md:mr-3">I&apos;m </span>
-              </span>
-              <span className="text-hero px-2 z-10 text-transparent duration-1000 bg-pink-500 cursor-default text-edge-outline animate-title font-display whitespace-nowrap bg-clip-text">
-                <span className="mr-5 leading-[1.15] md:mr-3">Zachary </span>
-              </span>
-              <span className="text-hero px-2 z-10 text-transparent duration-1000 bg-cyan-400 cursor-default text-edge-outline animate-title font-display whitespace-nowrap bg-clip-text">
-                <span className="mr-5 leading-[1.15] md:mr-3">Burgoon.</span>
-              </span>
+            <div className="pl-10 w-full">
+              {/* text-hero pl-10 z-10 text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display whitespace-nowrap bg-clip-text */}
+              <TextHoverEffect
+                className="text-hero"
+                segments={[
+                  { text: "I'm ", color: "#ffffff" },
+                  { text: "Zachary ", color: "#22d3ee" },
+                  { text: "Burgoon.", color: "#ec4899" },
+                ]}
+              />
             </div>
             <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
             <div className="inline-block px-10 text-left animate-fade-in z-15 w-full mt-8">
