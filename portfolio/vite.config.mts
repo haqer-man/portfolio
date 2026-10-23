@@ -12,6 +12,6 @@ export default defineConfig({
       viteEnvironment: { name: "worker" },
     }),
     redwood(),
-    tailwindcss()
+    tailwindcss(),
   ],
 });

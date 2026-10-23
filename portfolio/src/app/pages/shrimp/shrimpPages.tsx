@@ -34,7 +34,7 @@ export function ShrimpHome() {
         }
       `}</style>
 
-      <img src={`${IMG}/shrimp.jpg`} />
+      <img className="inline" src={`${IMG}/shrimp.jpg`} />
       <form action="/shrimp/test">
         <button className="button"><b>Begin test?</b></button>
       </form>
@@ -89,7 +89,7 @@ export function ShrimpTest() {
         }
       `}</style>
 
-      <img className="main" src={`${IMG}/eyebrow.jpg`} />
+      <img className="main inline" src={`${IMG}/eyebrow.jpg`} />
       <h1 className="main">Are you a shrimp?</h1>
       <div className="buttons">
         <form action="/shrimp/fail">
@@ -116,6 +116,7 @@ export function ShrimpSuccess() {
           margin: auto;
           width: 100%;
           max-height: 90vh;
+          display: inline;
         }
 
         .retry { text-align: center; }
@@ -166,6 +167,7 @@ export function ShrimpFail() {
           width: 100vw;
           max-height: 80vh;
           margin: auto;
+          display: inline;
         }
 
         body { background-color: blue; }

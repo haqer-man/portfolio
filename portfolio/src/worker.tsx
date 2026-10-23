@@ -1,16 +1,17 @@
-import { layout, render, route, prefix } from "rwsdk/router"
-import { defineApp } from "rwsdk/worker"
+import { layout, render, route, prefix } from "rwsdk/router";
+import { defineApp } from "rwsdk/worker";
 
-import { Document } from "@/app/document"
-import { setCommonHeaders } from "@/app/headers"
+import { Document } from "@/app/document";
+import { setCommonHeaders } from "@/app/headers";
 
-import { Home } from "@/app/pages/home"
-import { RoboticsHome } from "@/app/pages/robotics/index"
-import { CSHome } from "@/app/pages/cs/index"
-import { Contact } from "@/app/pages/contact"
-import { routes as photoRoutes } from "@/app/pages/photography/routes"
-import { PhotoLayout } from "@/app/layouts/PhotoLayout"
-import { shrimpRoutes } from "@/app/pages/shrimp/routes"
+import { Home } from "@/app/pages/home";
+import { RoboticsHome } from "@/app/pages/robotics/index";
+import { CSHome } from "@/app/pages/cs/index";
+import { Contact } from "@/app/pages/contact";
+import { routes as photoRoutes } from "@/app/pages/photography/routes";
+import { PhotoLayout } from "@/app/layouts/PhotoLayout";
+import { RootLayout } from "@/app/layouts/RootLayout";
+import { shrimpRoutes } from "@/app/pages/shrimp/routes";
 
 export type AppContext = {};
 
@@ -21,7 +22,7 @@ export default defineApp([
     ctx;
   },
   render(Document, [
-    route("/", Home),
+    layout(RootLayout, [route("/", Home)]),
     route("/contact", Contact),
     route("/cs", CSHome),
     route("/robotics", RoboticsHome),

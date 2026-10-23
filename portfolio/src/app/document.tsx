@@ -1,4 +1,4 @@
-import styles from "./styles.css?url"
+import styles from "@/app/styles.css?url"
 
 
 export const Document: React.FC<{ children: React.ReactNode }> = ({
