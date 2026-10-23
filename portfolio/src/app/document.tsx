@@ -7,7 +7,7 @@ export const Document: React.FC<{ children: React.ReactNode }> = ({
   <html lang="en">
     <head>
       <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       <title>Zachary Burgoon</title>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link

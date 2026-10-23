@@ -19,12 +19,12 @@ export function Navigation() {
 	}, []);
 
 	return (
-		<header ref={ref} className="fixed top-0 z-50 w-full bg-black">
-			<StarsBackground 
+		<header ref={ref} className="fixed top-0 z-50 w-full bg-black bg-transparent">
+			{/* <StarsBackground 
 				starDensity={0.002} 
 				twinkleProbability={0.8} 
 				atHome={false}
-			/>
+			/> */}
 			<div className="relative container flex flex-row-reverse items-center p-6 mx-auto">
 
 				<div className="flex justify-between gap-8">

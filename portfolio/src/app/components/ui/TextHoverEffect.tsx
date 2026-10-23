@@ -86,7 +86,7 @@ export const TextHoverEffect = ({
       <text
         x="0"
         y="50%"
-        dominantBaseline="middle"
+        dy="0.28em"
         strokeWidth="1.5"
         xmlSpace="preserve"
         className="fill-transparent font-[helvetica] font-bold"
@@ -99,7 +99,7 @@ export const TextHoverEffect = ({
       <motion.text
         x="0"
         y="50%"
-        dominantBaseline="middle"
+        dy="0.28em"
         strokeWidth="1.5"
         xmlSpace="preserve"
         className="fill-transparent font-[helvetica] font-bold"
@@ -114,7 +114,7 @@ export const TextHoverEffect = ({
       <text
         x="0"
         y="50%"
-        dominantBaseline="middle"
+        dy="0.28em"
         stroke="url(#textGradient)"
         strokeWidth="2"
         xmlSpace="preserve"

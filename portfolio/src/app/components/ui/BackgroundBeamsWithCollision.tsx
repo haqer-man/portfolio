@@ -43,6 +43,10 @@ export const BackgroundBeamsWithCollision = ({
   const parentRef = useRef<HTMLDivElement | null>(null);
   const nextId = useRef(0);
   const [beams, setBeams] = useState<Beam[]>([]);
+  className=classname(
+    "min-h-dvh bg-gradient-to-b from-black via-neutral-950 to-neutral-900 relative flex items-center w-full justify-center overflow-hidden",
+    className
+  );
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;

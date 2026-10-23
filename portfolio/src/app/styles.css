@@ -12,8 +12,8 @@
   /* animations: each variable becomes an animate-* class */
   --animate-fade-in: fade-in 2.5s ease-in-out forwards;
   --animate-title: title 1.5s ease-out forwards;
-  --animate-fade-left: fade-left 2s ease-in-out forwards;
-  --animate-fade-right: fade-right 2s ease-in-out forwards;
+  --animate-fade-left: fade-left 3.5s ease-in-out forwards;
+  --animate-fade-right: fade-right 2.5s ease-in-out forwards;
 
   @keyframes fade-in {
     0% { opacity: 0%; }
@@ -61,6 +61,17 @@
 .prose-quoteless blockquote p:first-of-type::after {
   content: none;
 }
+
+/* html,
+body {
+  background-color: #000;
+  min-height: 100dvh;
+}
+
+#hydrate-root {
+  min-height: 100vh;
+  min-height: 100dvh;
+} */
 
 :root {
   --navbar-height: 50px;
