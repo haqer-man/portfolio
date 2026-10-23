@@ -105,7 +105,7 @@ export const TextHoverEffect = ({
         className="fill-transparent font-[helvetica] font-bold"
         initial={{ strokeDashoffset: 8000, strokeDasharray: 8000 }}
         animate={{ strokeDashoffset: 0, strokeDasharray: 8000 }}
-        transition={{ duration: 4, ease: "easeInOut" }}
+        transition={{ duration: 10, ease: "easeInOut" }}
       >
         {coloredWords}
       </motion.text>
