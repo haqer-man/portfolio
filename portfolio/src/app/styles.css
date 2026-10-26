@@ -288,7 +288,7 @@ body:has(.cs) {
   --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   min-height: 100vh;
-  padding-top: calc(var(--navbar-height) * 8.5);
+  padding-top: calc(var(--navbar-height) * 20.5);
   background: var(--paper);
   color: var(--ink);
   font-family: var(--body);
