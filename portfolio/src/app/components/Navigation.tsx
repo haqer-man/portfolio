@@ -1,8 +1,7 @@
 "use client";
-import { TiHomeOutline as Home } from "react-icons/ti";
-import React, { useEffect, useRef, useState } from "react";
-import { ShootingStars } from "@/app/components/ui/ShootingStars";
+import { useEffect, useRef, useState } from "react";
 import { StarsBackground } from "@/app/components/ui/StarsBackground";
+import { rootNavbarData, NavbarItem } from "@/app/shared/navbar-links";
 
 export function Navigation() {
 	const ref = useRef<HTMLElement>(null);
@@ -19,36 +18,28 @@ export function Navigation() {
 	}, []);
 
 	return (
-		<header ref={ref} className="fixed top-0 z-50 w-full bg-black bg-transparent">
+		<header ref={ref} className="sticky top-0 z-50 w-full bg-black bg-transparent">
 			{/* <StarsBackground 
 				starDensity={0.002} 
 				twinkleProbability={0.8} 
 				atHome={false}
 			/> */}
-			<div className="relative container flex flex-row-reverse items-center p-6 mx-auto">
-
-				<div className="flex justify-between gap-8">
-					<a
-						href="/"
-						className="duration-200 text-zinc-400 hover:text-zinc-100"
-					>
-						<Home size={20} />
-						<span className="sr-only">Home</span>
-					</a>
-					<a
-						href="/projects"
-						className="duration-200 text-zinc-400 hover:text-zinc-100"
-					>
-						Projects
-					</a>
-          <a
-            href="/contact"
-            className="duration-200 text-zinc-400 hover:text-zinc-100"
-          >
-            Contact
-          </a>
-				</div>
-			</div>
+			<div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <a className="text-sm font-semibold tracking-[0.25em] text-zinc-200 transition" href="/">
+          burgoon
+        </a>
+        <nav className="flex items-center gap-3 sm:gap-4">
+          {rootNavbarData.map((link:NavbarItem) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="duration-200 text-sm text-zinc-400 transition hover:text-zinc-100"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
 		</header>
 	);
 };

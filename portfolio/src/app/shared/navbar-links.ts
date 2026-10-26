@@ -12,13 +12,20 @@ export const hamburgerData: NavbarList = [
   {label: "Robotics", href: "/robotics"},
   {label: "Photography", href: "/photos"},
   {label: "Contact Me", href: "/contact"},
-]
+];
 
 export const photoNavbarData: NavbarList = [
   {label: "Gallery", href: "/photos"}, // TODO: Rename this to imply it is the photography home page
   {label: "Albums", href: "/photos/albums"},
   {label: "Map", href: "/photos/map"},
   {label: "Contact", href: "/contact"},
-]
+];
 
-export const csNavbarData: NavbarList = []
+export const csNavbarData: NavbarList = [];
+
+export const rootNavbarData: NavbarList = [
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  // { label: "Photography", href: "/photos" },
+  { label: "Contact", href: "/contact" }
+]
