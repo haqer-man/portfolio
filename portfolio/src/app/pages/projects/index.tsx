@@ -41,10 +41,10 @@ export function Projects() {
           >
             <div className="max-w-xs">
               <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                Temp title
+                {item.title}
               </h2>
               <p className="mt-4 text-left text-base/6 text-neutral-200">
-                Sample description.
+                {item.description}
               </p>
             </div>
             {item.img &&
