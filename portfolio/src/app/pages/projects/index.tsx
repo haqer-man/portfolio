@@ -32,8 +32,10 @@ export function Projects() {
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl px-12 mx-auto w-full">
         {projects.map((item, i) => (
           <a
-            className="group rounded-3xl bg-zinc-950/70 shadow-sm transition duration-300"
-            href={`/projects/${item.href}`}
+            className={item.href ? 
+              "group rounded-3xl bg-zinc-950/70 shadow-sm transition duration-300" :
+              "group rounded-3xl bg-zinc-950/70 shadow-sm transition duration-300 cursor-default"}
+            href={item.href ? `/projects/${item.href}` : "/projects"}
           >
           <WobbleCard
             key={i}
