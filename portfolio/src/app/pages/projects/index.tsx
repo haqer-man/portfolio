@@ -1,199 +1,171 @@
-import type { FC } from "react";
+"use client";
+import { classname } from "@/lib/utils";
 import {
-  profile,
-  projects,
-  experience,
-  skills,
-  credentials,
-  type Project,
-} from "@/app/pages/projects/projects";
-
-const byId = (id: string): Project => {
-  const p = projects.find((x) => x.id === id);
-  if (!p) throw new Error(`Unknown project: ${id}`);
-  return p;
-};
-
-const StackTags: FC<{ items: string[] }> = ({ items }) => (
-  <ul className="tags" aria-label="Technologies">
-    {items.map((t) => (
-      <li key={t}>{t}</li>
-    ))}
-  </ul>
-);
-
-const ProjectLinks: FC<{ project: Project }> = ({ project }) =>
-  project.links?.length ? (
-    <p className="project-links">
-      {project.links.map((l) => (
-        <a key={l.href} href={l.href} target="_blank" rel="noreferrer">
-          {l.label}
-        </a>
-      ))}
-    </p>
-  ) : null;
-
-const ProjectBody: FC<{ project: Project }> = ({ project }) => (
-  <>
-    <h3 className="project-title">{project.title}</h3>
-    <p className="project-summary">{project.summary}</p>
-    <p className="project-role">{project.role}</p>
-    <div className="story">
-      <div>
-        <h4>The problem</h4>
-        <p>{project.problem}</p>
-      </div>
-      <div>
-        <h4>What I built</h4>
-        <p>{project.solution}</p>
-      </div>
-    </div>
-    {project.highlights && (
-      <ul className="highlights">
-        {project.highlights.map((h) => (
-          <li key={h}>{h}</li>
-        ))}
-      </ul>
-    )}
-    <StackTags items={project.stack} />
-    <ProjectLinks project={project} />
-  </>
-);
-
-const LidarMap: FC = () => (
-  <svg
-    className="lidar"
-    viewBox="0 0 320 320"
-    role="img"
-    aria-label="Illustration of a LiDAR sweep mapping a maze"
-  >
-    <g className="lidar-walls">
-      <path d="M20 20H300V300H20Z" />
-      <path d="M20 110H190M130 110V200M70 200H240M240 200V110M240 110H300M190 20V70M70 250V300M160 250V300" />
-    </g>
-    <g className="lidar-sweep">
-      <path d="M160 160L160 20A140 140 0 0 1 230 38.76Z" className="wedge" />
-      <line x1="160" y1="160" x2="160" y2="20" className="beam" />
-    </g>
-    <circle cx="160" cy="160" r="6" className="robot" />
-  </svg>
-);
+  IconBoxAlignRightFilled,
+  IconClipboardCopy,
+  IconKeyboard,
+  IconPuzzle,
+  IconCloudBolt,
+  IconFileBroken,
+  IconSignature,
+  IconTableColumn,
+} from "@tabler/icons-react";
+import { motion } from "motion/react";
+import { StarsBackground } from "@/app/components/ui/StarsBackground";
+import { WobbleCard } from "@/app/components/ui/WobbleCard";
 
 export function Projects() {
-  const slam = byId("slam");
-  const shells = [byId("c-shell"), byId("java-shell")];
-  const more = ["wordless", "sudoku", "weather"].map(byId);
-
   return (
-    <div className="cs">
-      <a className="skip" href="#projects">
-        Skip to projects
-      </a>
-
-      <main>
-        <section className="hero">
-          <div className="hero-text">
-            <h1>{profile.headline}</h1>
-            <p className="lede">{profile.bio}</p>
-            <p className="hero-actions">
-              <a className="btn" href={profile.resume}>
-                Download resume
-              </a>
-              <a className="btn btn-quiet" href={profile.github} target="_blank" rel="noreferrer">
-                GitHub
-              </a>
-              <a className="btn btn-quiet" href={profile.linkedin} target="_blank" rel="noreferrer">
-                LinkedIn
-              </a>
-            </p>
+    <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
+      <StarsBackground
+        starDensity={0.004}
+        twinkleProbability={0.7}
+        atHome={false}
+      />
+      <div className="mx-auto max-w-7xl px-4 pt-24 pb-12 sm:px-6 sm:pt-28 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <div>
+            Insert Text and effect here
           </div>
-          <LidarMap />
-        </section>
-
-        <section id="projects" className="block">
-          <h2>Projects</h2>
-
-          <article className="feature">
-            <ProjectBody project={slam} />
-          </article>
-
-          <h3 className="group-title">One shell, written twice</h3>
-          <p className="group-intro">
-            I built the same program in C and in Java to compare what each language makes easy and
-            what it makes you handle yourself.
-          </p>
-          <div className="pair">
-            {shells.map((p) => (
-              <article key={p.id} className="card">
-                <ProjectBody project={p} />
-              </article>
-            ))}
-          </div>
-
-          <h3 className="group-title">More work</h3>
-          <div className="trio">
-            {more.map((p) => (
-              <article key={p.id} className="card card-small">
-                <h3 className="project-title">{p.title}</h3>
-                <p className="project-summary">{p.summary}</p>
-                <p>{p.solution}</p>
-                <StackTags items={p.stack} />
-                <ProjectLinks project={p} />
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="experience" className="block">
-          <h2>Experience</h2>
-          <ul className="timeline">
-            {experience.map((e) => (
-              <li key={e.role}>
-                <p className="when">{e.when}</p>
-                <div>
-                  <h3>{e.role}</h3>
-                  <p className="org">{e.org}</p>
-                  <ul>
-                    {e.points.map((pt) => (
-                      <li key={pt}>{pt}</li>
-                    ))}
-                  </ul>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section id="skills" className="block">
-          <h2>Skills</h2>
-          <dl className="skills">
-            {Object.entries(skills).map(([group, items]) => (
-              <div key={group}>
-                <dt>{group}</dt>
-                <dd>
-                  <StackTags items={items} />
-                </dd>
-              </div>
-            ))}
-          </dl>
-          <h3 className="group-title">Certifications and awards</h3>
-          <ul className="creds">
-            {credentials.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
-        </section>
-      </main>
-
-      <footer id="contact" className="cs-footer">
-        <h2>Let's talk</h2>
-        <p>I'm looking for internships starting summer 2027.</p>
-        <p>
-          <a className="btn" href="/contact">
-            Get in touch
+        </div>
+      </div>
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl px-12 mx-auto w-full">
+        {projects.map((item, i) => (
+          <a
+            className="group rounded-3xl bg-zinc-950/70 shadow-sm transition duration-300"
+            href={`/projects/${item.href}`}
+          >
+          <WobbleCard
+            key={i}
+            className={classname("[&>p:text-lg]", item.className)}
+          >
+            <div className="max-w-xs">
+              <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                Temp title
+              </h2>
+              <p className="mt-4 text-left text-base/6 text-neutral-200">
+                Sample description.
+              </p>
+            </div>
+            {item.img &&
+            <img
+              src={item.img}
+              className="absolute max-w-1/2 -right-4 lg:-right-[10%] grayscale filter -bottom-10 object-contain rounded-2xl"
+            />}
+          </WobbleCard>
           </a>
-        </p>
-      </footer>
+        ))}
+      </div>
     </div>
   );
-};
+}
+
+const BaseSkeleton = () => (
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)] border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black" />
+)
+
+const projects = [
+  {
+    title: "Autonomous maze mapping robot",
+    description: (
+      <span className="text-sm">
+        Mapping, localizatoin, and path planning for a LiDAR-equipped, non-holonomic robot.
+      </span>
+    ),
+    header: <BaseSkeleton />,
+    className: "md:col-span-2",
+    href: "maze",
+    content: () => {
+      return (
+        <div className="flex flex-col-2">
+          <p>
+            The problem:
+            A non-holonomic robot has to plan smooth, drivable paths, and it
+            has to do that in a maze it has never seen. Without a map and an estimate
+            of its own position, it must decide where to go.
+            What I built:
+            I built a pipeline as ROS 2 nodes: LiDAR scans feed a mapping and
+            localizatoin stack, and a path finder turns the resulting map into
+            paths the robot can drive. The same code ran across mazes of different
+            sizes successfully.
+          </p>
+        </div>
+      )
+    },
+    skills: ["Python", "ROS 2", "Bash", "LiDAR"],
+  },
+  {
+    title: "Shell and interpreter in C and Java",
+    description: (
+      <span className="text-sm">
+        A command-line shell and programming language interpreter built purely in C, then rebuilt using Java.
+      </span>
+    ),
+    header: <BaseSkeleton />,
+    className: "md:col-span-1",
+    img: "/noise.webp",
+    content: () => { // TODO: add content
+      return (
+        <p>
+          temp
+        </p>
+      )
+    },
+    skills: ["C", "Linux", "Java"] // TODO: Add skills
+  },
+  {
+    title: "WordLess",
+    description: (
+      <span className="text-sm">
+        An interactive word game that saves your progress in the browser.
+      </span>
+    ),
+    header: <BaseSkeleton />,
+    className: "md:col-span-2",
+    img: "/noise.webp",
+    content: () => { // TODO: add content
+      return (
+        <>
+        temp
+        </>
+      )
+    },
+    skills: ["JavaScript", "HTML", "CSS"],
+  },
+  {
+    title: "Sudontku",
+    description: (
+      <span className="text-sm">
+        A Python rebuild of the puzzle game Sudoku, documented with PyDocs.
+      </span>
+    ),
+    header: <BaseSkeleton />,
+    className: "md:col-span-1",
+    content: () => {
+      return (
+        <>
+          temp
+        </>
+      )
+    },
+    skills: ["Python", "PyDocs", "Git"],
+  },
+  {
+    title: "Weather prediction model",
+    description: (
+      <span className="text-sm">
+        A linear regression machine learning model that predicts weather conditions for Fresno, CA.
+      </span>
+    ),
+    header: <BaseSkeleton />, // TODO: Make this be a bunch of clouds that rain when hovered over
+    className: "md:col-span-2",
+    content: () => {
+      return (
+        <>
+          temp
+        </>
+      )
+    },
+    skills: ["Python", "pandas", "NumPy", "Matplotlib"]
+  },
+];

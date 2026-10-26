@@ -25,7 +25,7 @@ export function Navigation() {
 				atHome={false}
 			/>
 			<div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <a className="text-sm font-semibold tracking-[0.25em] text-zinc-200 transition" href="/">
+        <a className="text-sm font-semibold tracking-[0.25em] text-zinc-400 transition" href="/">
           burgoon
         </a>
         <nav className="flex items-center gap-3 sm:gap-4">
