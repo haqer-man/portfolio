@@ -20,8 +20,8 @@ export function Navigation() {
 	return (
 		<header ref={ref} className="sticky top-0 z-50 w-full border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/70">
 			<StarsBackground 
-				starDensity={0.002} 
-				twinkleProbability={0.8} 
+				starDensity={0.006} 
+				twinkleProbability={0.7} 
 				atHome={false}
 			/>
 			<div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">

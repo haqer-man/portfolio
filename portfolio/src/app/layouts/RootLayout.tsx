@@ -9,14 +9,11 @@ export function RootLayout({ children, requestInfo }: LayoutProps) {
         <title>Zachary Burgoon</title>
         <meta name="description" content="Portfolio" />
       </head>
-      <body className="min-h-screen bg-black text-zinc-200">
-        <div className="relative min-h-screen">
-          <StarsBackground
-            atHome={false}
-            starBackgroundClassName="absolute inset-0 z-10" />
-          <div className="flex min-h-screen flex-col">
+      <body className="max-h-screen bg-black text-zinc-200">
+        <div className="relative max-h-screen">
+          <div className="flex max-h-screen flex-col">
             <Navigation />
-            <main className="flex-1 pb-12">{children}</main>
+            <main className="flex-1">{children}</main>
             {/* <Footer /> */}
           </div>
         </div>

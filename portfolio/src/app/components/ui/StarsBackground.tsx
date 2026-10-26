@@ -139,8 +139,7 @@ export function StarsBackground({
   return (
     <canvas
       ref={canvasRef}
-      height={atHome? "330vh" : "12px"}
-      className={classname("w-full absolute inset-0 pointer-events-none", starBackgroundClassName)}
+      className={classname("h-full w-full absolute inset-0 pointer-events-none", starBackgroundClassName)}
     />
   );
 }
