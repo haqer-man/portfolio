@@ -23,7 +23,7 @@ export default defineApp([
   },
   render(Document, [
     layout(RootLayout, [route("/", Home)]),
-    route("/contact", Contact),
+    layout(RootLayout, [route("/contact", Contact)]),
     layout(RootLayout, [
       prefix("/projects", projectRoutes)
     ]),
