@@ -7,7 +7,7 @@ export function RootLayout({ children, requestInfo }: LayoutProps) {
     <div className="relative max-h-screen">
       <div className="flex max-h-screen flex-col">
         <Navigation />
-        <main className="flex-1 pb-12">{children}</main>
+        <main className="lg:pt-12 md:pt-6 pt-4 flex-1">{children}</main>
         {/* <Footer /> */}
       </div>
     </div>
