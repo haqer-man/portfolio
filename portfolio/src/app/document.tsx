@@ -23,7 +23,7 @@ export const Document: React.FC<{ children: React.ReactNode }> = ({
       <link rel="stylesheet" href={styles} />
       <link rel="modulepreload" href="/src/client.tsx" />
     </head>
-    <body>
+    <body className="bg-black text-zinc-200">
       {children}
       <script>import("/src/client.tsx")</script>
     </body>
