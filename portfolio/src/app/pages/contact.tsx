@@ -21,6 +21,7 @@ export function Contact() {
         body: formData,
       });
       const data = await response.json();
+      console.log(typeof data);
       if (data.success) {
         setResult("Success!");
         form.reset();
@@ -58,6 +59,19 @@ export function Contact() {
         <p className="mt-8 max-w-lg text-center text-base text-neutral-600 md:text-left dark:text-neutral-400">
           I am looking for jobs and internships for Summer 2027. Shoot me an email if you think I would be a good candidate.
         </p>
+        <div className="mt-10 hidden flex-col items-center gap-4 md:flex-row lg:flex">
+          <p className="text-sm text-neutral-500 dark:text-neutral-400">
+            zachareee752@gmail.com
+          </p>
+          <div className="h-1 w-1 rounded-full bg-neutral-500 dark:bg-neutral-400" />
+          {/* <p className="text-sm text-neutral-500 dark:text-neutral-400">
+            phone number
+          </p>
+          <div className="h-1 w-1 rounded-full bg-neutral-500 dark:bg-neutral-400" /> */}
+          <p className="text-sm text-neutral-500 dark:text-neutral-400">
+            contact@burgoon.dev
+          </p>
+        </div>
       </div>
       <div className="relative mx-auto flex w-full max-w-2xl flex-col items-start gap-4 overflow-hidden rounded-3xl bg-gradient-to-b from-gray-100 to-gray-200 p-4 sm:p-10 dark:from-neutral-900 dark:to-neutral-950">
         <form onSubmit={onSubmit} className="w-full">

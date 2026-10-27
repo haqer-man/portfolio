@@ -14,6 +14,21 @@ import { motion } from "motion/react";
 import { StarsBackground } from "@/app/components/ui/StarsBackground";
 import { WobbleCard } from "@/app/components/ui/WobbleCard";
 import { TextHoverEffect } from "@/app/components/ui/TextHoverEffect";
+import { ReactElement } from "react";
+import { JSX } from "react";
+
+type Project = {
+  title: string,
+  description: ReactElement,
+  slug?: string,
+  href?: string,
+  header: ReactElement,
+  className: string,
+  img?: string,
+  offset?: number,
+  content: any, // TODO: select actual type
+  skills: string[]
+}
 
 export function Projects() {
   return (
@@ -41,10 +56,11 @@ export function Projects() {
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl px-12 mx-auto w-full">
         {projects.map((item, i) => (
           <a
-            className={item.slug ? 
+            className={item.slug || item.href ? 
               "group rounded-3xl bg-zinc-950/70 shadow-sm transition duration-300" :
               "group rounded-3xl bg-zinc-950/70 shadow-sm transition duration-300 cursor-default"}
-            href={item.slug ? `/projects/${item.slug}` : "/projects"}
+            href={item.href ? item.href : item.slug ? `/projects/${item.slug}` : "/projects"}
+            key={item.title}
           >
           <WobbleCard
             key={i}
@@ -54,14 +70,14 @@ export function Projects() {
               <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
                 {item.title}
               </h2>
-              <p className="mt-4 text-left text-base/6 text-neutral-200">
+              <p className="mt-4 text-left text-base/6 text-neutral-100">
                 {item.description}
               </p>
             </div>
             {item.img &&
             <img
               src={item.img}
-              className="absolute max-w-1/2 -right-4 lg:-right-[10%] grayscale filter -bottom-10 object-contain rounded-2xl"
+              className={`absolute max-w-1/2 -z-10 -right-4 lg:-right-[10%] filter -bottom-${((item.offset ?? 0) + 10).toString()} object-contain rounded-2xl` + ((item.slug || item.href) ? "" : " grayscale")}
             />}
           </WobbleCard>
           </a>
@@ -75,7 +91,7 @@ const BaseSkeleton = () => (
   <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)] border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black" />
 )
 
-const projects = [
+const projects: Project[] = [
   {
     title: "Autonomous maze mapping robot",
     description: (
@@ -133,7 +149,9 @@ const projects = [
     ),
     header: <BaseSkeleton />,
     className: "md:col-span-2",
-    img: "/noise.webp",
+    href: "https://haqer-man.github.io/WordLess/",
+    img: "/wordless-preview.webp",
+    offset: -5,
     content: () => { // TODO: add content
       return (
         <>
