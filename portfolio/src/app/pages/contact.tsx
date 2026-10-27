@@ -34,7 +34,7 @@ export function Contact() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-start min-h-screen">
+    <div className="relative flex flex-col pt-[10%] items-center justify-start min-h-screen">
     <StarsBackground
       starDensity={0.004}
       twinkleProbability={0.7}
