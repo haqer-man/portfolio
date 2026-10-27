@@ -59,7 +59,7 @@ export function Projects() {
             className={item.slug || item.href ? 
               "group rounded-3xl bg-zinc-950/70 shadow-sm transition duration-300" :
               "group rounded-3xl bg-zinc-950/70 shadow-sm transition duration-300 cursor-default"}
-            href={item.href ? item.href : item.slug ? `/projects/${item.slug}` : "/projects"}
+            href={item.href ? item.href : item.slug ? `/projects/${item.slug}` : "#"}
             key={item.title}
           >
           <WobbleCard
@@ -77,7 +77,7 @@ export function Projects() {
             {item.img &&
             <img
               src={item.img}
-              className={`absolute max-w-1/2 -z-10 -right-4 lg:-right-[10%] filter -bottom-${((item.offset ?? 0) + 10).toString()} object-contain rounded-2xl` + ((item.slug || item.href) ? "" : " grayscale")}
+              className={`absolute max-w-1/2 -z-10 -right-4 lg:-right-[10%] filter -bottom-[30%] object-contain rounded-2xl` + ((item.slug || item.href) ? "" : " grayscale")}
             />}
           </WobbleCard>
           </a>
