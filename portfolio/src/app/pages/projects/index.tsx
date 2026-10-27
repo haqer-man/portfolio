@@ -85,7 +85,7 @@ const projects = [
     ),
     header: <BaseSkeleton />,
     className: "md:col-span-2",
-    slug: "maze",
+    // slug: "maze",
     content: () => {
       return (
         <div className="flex flex-col-2">
