@@ -9,11 +9,15 @@ export const TextHoverEffect = ({
   segments,
   duration,
   className,
+  align = "left",
 }: {
   segments: Segment[];
   duration?: number;
   className?: string;
+  align?: "left" | "center";
 }) => {
+  const x = align === "center" ? "50%" : "0";
+  const anchor = align === "center" ? "middle" : "start";
   const svgRef = useRef<SVGSVGElement>(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
@@ -84,9 +88,10 @@ export const TextHoverEffect = ({
 
       {/* Hover-only outline layer */}
       <text
-        x="0"
+        x={x}
         y="50%"
         dy="0.28em"
+        textAnchor={anchor}
         strokeWidth="1.5"
         xmlSpace="preserve"
         className="fill-transparent font-[helvetica] font-bold"
@@ -97,9 +102,10 @@ export const TextHoverEffect = ({
 
       {/* Always-visible outline that draws in */}
       <motion.text
-        x="0"
+        x={x}
         y="50%"
         dy="0.28em"
+        textAnchor={anchor}
         strokeWidth="1.5"
         xmlSpace="preserve"
         className="fill-transparent font-[helvetica] font-bold"
@@ -112,9 +118,10 @@ export const TextHoverEffect = ({
 
       {/* Gradient reveal layer that follows the cursor (single plain string) */}
       <text
-        x="0"
+        x={x}
         y="50%"
         dy="0.28em"
+        textAnchor={anchor}
         stroke="url(#textGradient)"
         strokeWidth="2"
         xmlSpace="preserve"

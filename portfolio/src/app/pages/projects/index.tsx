@@ -13,10 +13,11 @@ import {
 import { motion } from "motion/react";
 import { StarsBackground } from "@/app/components/ui/StarsBackground";
 import { WobbleCard } from "@/app/components/ui/WobbleCard";
+import { TextHoverEffect } from "@/app/components/ui/TextHoverEffect";
 
 export function Projects() {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
+    <div className="relative flex flex-col items-center justify-start min-h-screen overflow-hidden">
       <StarsBackground
         starDensity={0.004}
         twinkleProbability={0.7}
@@ -24,9 +25,17 @@ export function Projects() {
       />
       <div className="mx-auto max-w-7xl px-4 pt-24 pb-12 sm:px-6 sm:pt-28 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <div>
-            Insert Text and effect here
+        <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+          <div className="w-full">
+            <TextHoverEffect
+              align="center"
+              className="text-hero-2"
+              segments={[
+                { text: "Projects", color: "#3364D7" },
+              ]}
+            />
           </div>
+          <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         </div>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl px-12 mx-auto w-full">
