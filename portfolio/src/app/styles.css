@@ -8,6 +8,7 @@
   --font-display: "Cal Sans", sans-serif;
 
   --text-hero: clamp(2rem, 8.5vw, 6rem);
+  --text-hero-2: clamp(2rem, 5.5vw, 4rem);
 
   /* animations: each variable becomes an animate-* class */
   --animate-fade-in: fade-in 2.5s ease-in-out forwards;

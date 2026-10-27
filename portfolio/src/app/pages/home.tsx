@@ -3,11 +3,6 @@ import { StarsBackground } from "@/app/components/ui/StarsBackground";
 import { TextHoverEffect } from "@/app/components/ui/TextHoverEffect";
 import { Social } from "@/app/components/Social";
 
-const navigation = [
-  { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
-];
-
 export function Home() {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
@@ -31,7 +26,6 @@ export function Home() {
             </div>
             <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
             <div className="pl-10 w-full">
-              {/* text-hero pl-10 z-10 text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display whitespace-nowrap bg-clip-text */}
               <TextHoverEffect
                 className="text-hero"
                 segments={[
