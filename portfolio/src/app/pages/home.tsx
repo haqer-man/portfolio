@@ -30,8 +30,8 @@ export function Home() {
                 className="text-hero"
                 segments={[
                   { text: "I'm ", color: "#ffffff" },
-                  { text: "Zachary ", color: "#20baf7" },
-                  { text: "Burgoon.", color: "#ea3260" },
+                  { text: "Zachary ", color: "#3eb2fa" },
+                  { text: "Burgoon.", color: "#ec3e78" },
                 ]}
               />
             </div>
